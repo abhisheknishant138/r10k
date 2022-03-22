@@ -50,16 +50,15 @@ endif
 
 build: prep
 	docker pull alpine:$(alpine_version)
-	docker buildx build \
+	docker buildx build --platform linux/arm64,linux/amd64 -t manish_image\
 		${DOCKER_BUILD_FLAGS} \
-		--load \
 		--build-arg alpine_version=$(alpine_version) \
 		--build-arg vcs_ref=$(vcs_ref) \
 		--build-arg build_date=$(build_date) \
 		--build-arg version=$(VERSION) \
 		--build-arg pupperware_analytics_stream=$(PUPPERWARE_ANALYTICS_STREAM) \
 		--file r10k/$(dockerfile) \
-		--tag $(NAMESPACE)/r10k:$(VERSION) $(dockerfile_context)
+		--push
 ifeq ($(IS_LATEST),true)
 	@docker tag $(NAMESPACE)/r10k:$(VERSION) puppet/r10k:$(LATEST_VERSION)
 endif
