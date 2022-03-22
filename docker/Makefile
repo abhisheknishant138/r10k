@@ -50,7 +50,7 @@ endif
 
 build: prep
 	docker pull alpine:$(alpine_version)
-	docker buildx build --platform linux/arm64,linux/amd64 -t manish_image\
+	docker buildx build --platform linux/arm64,linux/amd64 -t manish_image \
 		${DOCKER_BUILD_FLAGS} \
 		--build-arg alpine_version=$(alpine_version) \
 		--build-arg vcs_ref=$(vcs_ref) \
