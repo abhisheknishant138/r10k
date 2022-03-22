@@ -32,7 +32,7 @@ jobs:
       - name: Publish container
         working-directory: docker
         run: |
-          make publish
+          make build
       - name: Build release container
         env:
           IS_RELEASE: true
