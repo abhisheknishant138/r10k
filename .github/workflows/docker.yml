@@ -11,8 +11,8 @@ jobs:
       PUPPERWARE_ANALYTICS_STREAM: production
       IS_LATEST: true
       # Still need these env vars for README publishing
-      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+      DOCKERHUB_USERNAME: ${{ abhishek138 }}
+      DOCKERHUB_PASSWORD: ${{ abhishek138 }}
 
     runs-on: ubuntu-latest
 
